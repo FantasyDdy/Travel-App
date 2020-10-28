@@ -1,0 +1,30 @@
+{
+  "id": "2160303",
+  "name": "vue-travel",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "给予Vue开发的去哪儿网App",
+  "glyphs": [
+    {
+      "icon_id": "15838525",
+      "name": "search",
+      "font_class": "search",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    },
+    {
+      "icon_id": "15838561",
+      "name": "arrow-left-bold",
+      "font_class": "arrow-left-bold",
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
+      "icon_id": "15838582",
+      "name": "arrow-down-filling",
+      "font_class": "arrow-down-filling",
+      "unicode": "e688",
+      "unicode_decimal": 59016
+    }
+  ]
+}
