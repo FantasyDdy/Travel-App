@@ -1,7 +1,9 @@
 <template>
     <div class="icons">
         <swiper>
+            <!-- 这个循环是用来表示展示多少个滑动页面 -->
             <swiper-slide v-for='(page,index) in pages' :key='index'>
+                <!-- 这个循环是用来给滑动页放入icon -->
                 <div class="icon" v-for='item in page' :key='item.id'>
                     <div class="icon-img">
                         <img :src="item.imgUrl">
@@ -58,14 +60,14 @@ export default {
         }
     },
     computed:{
-        // 一页最多放8个icon 超出的icon不会被显示，我们需要手动将超出的icon放入下一滑动页
+        // 设置有多少个滑动页 （通过icon 的数量来形成一个二维数组，第一维表示滑动页，第二维表示每一页的icon数据）
         pages(){
             // 定义一个分页数组
             const pages = [];
             this.iconList.forEach((item,index) => {
-                // 利用 index 0~7 除以 8 向下取整数得零，来分页
+                // 重点：利用 index 0~7 除以 8 向下取整数得零，来分页
                 const page = Math.floor(index/8)
-                // 如果 pages[page] 内没有数据,让 pages[page] 成为一个数组用于放入icon，最终pages形成一个二维数组
+                // 判断 pages[page] 内是否有数据,无则让 pages[page] 初始化为一个第二维度的数组用于存放icon项
                 if(!pages[page]){
                     pages[page] = []
                 }

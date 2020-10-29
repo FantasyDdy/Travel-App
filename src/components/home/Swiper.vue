@@ -1,4 +1,5 @@
 <template>
+    <!-- wrapper 用于撑开页面，防止页面的抖动 -->
     <div class="wrapper">
         <swiper :options="swiperOption">
             <swiper-slide v-for="img in imgs" :key='img.id'>
