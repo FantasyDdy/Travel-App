@@ -1,6 +1,6 @@
 <template>
     <div class="icons">
-        <swiper>
+        <swiper :options="swiperOption">
             <!-- 这个循环是用来表示展示多少个滑动页面 -->
             <swiper-slide v-for='(page,index) in pages' :key='index'>
                 <!-- 这个循环是用来给滑动页放入icon -->
@@ -57,6 +57,9 @@ export default {
                   imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/a9/ffc620dbda9b9c02.png",
                   desc: "一日游"
                 }],
+            swiperOption: {
+                autoplay: false
+            }
         }
     },
     computed:{
@@ -91,6 +94,7 @@ export default {
         overflow: hidden;
         height: 0;
         padding-bottom: 50%;
+        margin-top: 0.1rem;
         // background-color: grey;
         .icon{
             position: relative;;
