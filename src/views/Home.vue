@@ -3,7 +3,7 @@
     <home-header></home-header>
     <home-swiper></home-swiper>
     <home-icons></home-icons>
-
+    
     <!-- <test></test> -->
   </div>
 </template>
