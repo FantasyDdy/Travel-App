@@ -2,7 +2,7 @@
     <div>
         <div class="recommend-title">热销推荐</div>
         <ul>
-            <li class="item" v-for="(item,index) in recommendList" :key="index">
+            <li class="item" v-for="(item,index) in recommendList" :key="item.id">
                 <img :src="item.imgUrl">
                 <div class="item-info">
                     <p class="item-title">{{item.title}}</p>
@@ -67,11 +67,6 @@ export default {
             height: 1.9rem;
             // background-color: red;
             overflow: hidden;
-            .item-img{
-                width: 1.7rem;
-                height: 1.7rem;
-                padding: 0.1rem;
-            }
             img{
                 width: 1.7rem;
                 height: 1.7rem;
@@ -80,8 +75,8 @@ export default {
             .item-info{
                 flex:1;
                 padding: 0.1rem;
-                min-width: 0;
                 // 在一个flex布局中，对于一个设置了flex属性设置为1的div容器，再对其设置min-width：0，保证内容不超出外层容器
+                min-width: 0;
                 .item-title{
                     color: @drakTextColor;
                     line-height: 0.54rem;
