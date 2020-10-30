@@ -15,4 +15,8 @@ body{
   margin: 0;
   padding: 0;
 }
+*:focus{
+  // 选中时无轮廓
+  outline: none;
+}
 </style>
