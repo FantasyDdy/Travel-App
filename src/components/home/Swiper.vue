@@ -1,8 +1,8 @@
 <template>
     <!-- wrapper 用于撑开页面，防止页面的抖动 -->
     <div class="wrapper">
-        <swiper :options="swiperOption">
-            <swiper-slide v-for="img in imgs" :key='img.id'>
+        <swiper :options="swiperOption" v-if='showSwiper'>
+            <swiper-slide v-for="img in list" :key='img.id'>
                 <img :src="img.imgUrl">
             </swiper-slide>
         <div class="swiper-pagination"  slot="pagination"></div>
@@ -13,22 +13,11 @@
 <script>
 export default {
     name:'HomeSwiper',
+    props:{
+        list:Array
+    },
     data(){
         return {
-            imgs: [{
-                    "id": "0001",
-                    "imgUrl": "http://img1.qunarzz.com/piao/fusion/1801/1a/94428c6dea109402.jpg_640x200_2cf590d8.jpg"
-                },{
-                    "id": "0002",
-                    "imgUrl": "http://img1.qunarzz.com/piao/fusion/1802/42/7c92b9a381e46402.jpg_640x200_1cdce2a4.jpg"
-                },{
-                    "id": "0003",
-                    "imgUrl": "http://img1.qunarzz.com/piao/fusion/1802/51/e78f936a5b404102.jpg_640x200_c14f0b3a.jpg"
-                },{
-                    "id": "0004",
-                    "imgUrl": "http://img1.qunarzz.com/piao/fusion/1712/91/a275569091681d02.jpg_640x200_0519ccb9.jpg"
-                }],
-
             swiperOption: {
                 // 显示分页器
                 pagination: '.swiper-pagination',
@@ -41,6 +30,12 @@ export default {
             },
         }
     },
+    computed:{
+        // swiper 一开始是根据空数组创建的，等父组件ajax获取值后又重新渲染了一遍，导致默认幻灯片展示最后一页，此处做修复。
+        showSwiper(){
+                return this.list.length;
+        }
+    }
 }
 </script>
 
