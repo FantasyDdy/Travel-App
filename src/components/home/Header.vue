@@ -10,8 +10,10 @@
             输入城市/景点/游玩主题
         </div>
         <div id="header-right">
-            城市
-            <span class="iconfont arrow-icon">&#xe688;</span>
+            <router-link to='/city'>
+                城市
+                <span class="iconfont arrow-icon">&#xe688;</span>
+            </router-link>
         </div>
   </div>
 </template>
@@ -25,12 +27,12 @@ export default {
 <style lang='less' scoped>
     // 在css中想用别名前面需要加上 “~”
     // @import '~@/assets/styles/varibles.less';
-    @import '~styles/varibles.less';
-    
+    @import '~styles/variables.less';
+    @import '~styles/mixins.less';
     .header{
         display: flex;
-        height: 0.86rem;
-        line-height: 0.86rem;
+        height: @headerHeight;
+        line-height: @headerHeight;
         background-color: @bgcolor;
         color: #fff;
 
@@ -54,12 +56,17 @@ export default {
             color:#ccc;
             line-height: 0.64rem;
             padding-left: 0.2rem;
+            .ellipsis()
         }
 
         #header-right{
             width: 1.24rem;
             float: right;
             text-align: center;
+            a{
+                color:white;
+                text-decoration: none;
+            }
         }
 
         .arrow-icon{

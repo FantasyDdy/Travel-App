@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-    @import '~styles/varibles.less';
+    @import '~styles/variables.less';
     @import "~styles/mixins.less";
     .recommend-title{
         line-height: 0.8rem;

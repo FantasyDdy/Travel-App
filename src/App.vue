@@ -9,8 +9,7 @@ html{
   font-size: 50px;
 }
 body{
-  font-size: 15px;
-  // box-sizing: border-box;
+  font-size: 0.28rem;
 }
 *{
   margin: 0;
