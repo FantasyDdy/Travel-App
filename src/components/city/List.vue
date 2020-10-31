@@ -17,7 +17,11 @@
                     </div>
                 </div>
             </div>
-            <div class="area" v-for='(item,key) in cities' :key='key'>
+            <div class="area" 
+            v-for='(item,key) in cities' 
+            :key='key'
+            :ref='key'
+            >
                 <div class="title">{{key}}</div>
                 <div class="item-list">
                     <div class="item" v-for="innerItem in item" :key='innerItem.id'>
@@ -37,17 +41,30 @@ export default {
     name:'Citylist',
     props:{
         hotCities:Array,
-        cities:Object
-    },
-    data(){
-        return{
-            
-            }
+        cities:Object,
+        letter:String,
     },
     mounted(){
-        let wrapper = this.$refs.wrapper;
-        let scroll = new BScroll(wrapper)
-    }
+        // 初始化 better-scroll组件
+        // 给组件创建一个scroll 实例属性
+        this.scroll = new BScroll(this.$refs.wrapper,{click: true});
+    },
+    // 监听到 letter 改变时，调用better-scoll 插件提供了 scrollToElement 方法达到滚动到对应字母城市的效果
+    watch:{
+        letter(){
+            if(this.letter){
+                // console.log(this.$refs[this.letter])
+                // Vue官方ref: 当 v-for 用于元素或组件的时候，引用信息将是包含 DOM 节点或组件实例的数组。
+                // 所以通过v-for 渲染出的ref都将以数组的形式注册引用信息
+
+                const element = this.$refs[this.letter][0];
+                // 引用信息数组是包含了对应DOM元素以及长度的二维数组，DOM元素位于这个二维数组的第零项
+    
+                // better-scoll 插件提供了 scrollToElement 方法
+                this.scroll.scrollToElement(element)
+            }
+        }
+    },
 }
 </script>
 
