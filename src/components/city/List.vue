@@ -12,73 +12,17 @@
             <div class="area">
                 <div class="title">热门城市</div>
                 <div class="button-list">
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div>
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div>
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div>
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div>
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div>
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div>
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
+                    <div class="button-wrapper" v-for='item in hotCities' :key='item.id'>
+                        <div class="button">{{item.name}}</div>
                     </div>
                 </div>
             </div>
-            <div class="area">
-                <div class="title">A</div>
+            <div class="area" v-for='(item,key) in cities' :key='key'>
+                <div class="title">{{key}}</div>
                 <div class="item-list">
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                </div>
-                <div class="title">A</div>
-                <div class="item-list">
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                </div>
-                <div class="title">A</div>
-                <div class="item-list">
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                </div>
-                <div class="title">A</div>
-                <div class="item-list">
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
-                    <div class="item">杭州</div>
+                    <div class="item" v-for="innerItem in item" :key='innerItem.id'>
+                        {{innerItem.name}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -91,6 +35,10 @@ import BScroll from 'better-scroll'
 
 export default {
     name:'Citylist',
+    props:{
+        hotCities:Array,
+        cities:Object
+    },
     data(){
         return{
             
