@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <keep-alive>
+      <!-- 当组件在 <keep-alive> 内被切换，它的 activated 和 deactivated 这两个生命周期钩子函数将会被对应执行。 -->
       <router-view/>
     </keep-alive>
   </div>

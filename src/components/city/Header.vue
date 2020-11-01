@@ -29,7 +29,7 @@ export default {
         color: white;
         background-color: @bgcolor;
         font-size: 0.32rem;
-        position: relative;;
+        position: relative;
         
         a{
             color: white;
