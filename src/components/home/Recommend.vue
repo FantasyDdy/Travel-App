@@ -2,14 +2,20 @@
     <div>
         <div class="recommend-title">热销推荐</div>
         <ul>
-            <li class="item" v-for="(item) in list" :key="item.id">
+            <!-- tag: 可以把 <router-link> 渲染成某种标签 -->
+            <router-link class="item" 
+            v-for="item in list" 
+            :key="item.id"
+            tag="li"
+            :to="'/detail/' + item.id"
+            >
                 <img :src="item.imgUrl">
                 <div class="item-info">
                     <p class="item-title">{{item.title}}</p>
                     <p class="item-desc">{{item.desc}}</p>
                     <button>查看详情</button>
                 </div>
-            </li>
+            </router-link>
         </ul>
     </div>
 </template>

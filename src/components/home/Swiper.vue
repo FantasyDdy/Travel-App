@@ -5,8 +5,8 @@
             <swiper-slide v-for="img in list" :key='img.id'>
                 <img :src="img.imgUrl">
             </swiper-slide>
-        <div class="swiper-pagination"  slot="pagination"></div>
-      </swiper>
+            <div class="swiper-pagination"  slot="pagination"></div>
+        </swiper>
     </div>
 </template>
 
