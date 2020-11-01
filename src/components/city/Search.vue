@@ -74,7 +74,7 @@ export default {
     // 用生命周期钩子，当list列表都挂载完毕时我们创建一个BScroll实例来实现搜索列表的滚动
     mounted(){
         // 给这个Vue组件添加一个scroll属性,scroll属性是BScroll的实例，就可以实现滚动
-        this.scroll = new BScroll(this.$refs.search);
+        this.scroll = new BScroll(this.$refs.search,{click:true});
     }
 }
 </script>

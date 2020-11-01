@@ -75,7 +75,7 @@ export default {
             clearTimeout(this.timer)  // clearTimeout() 方法可取消由 setTimeout() 方法设置的 timeout。
           }
 
-          // 对TouchMove事件做一个16毫秒的节流
+          // 对TouchMove事件做一个8毫秒的节流
           this.timer = setTimeout(() => {
             const startY = this.$refs['A'][0].offsetTop;
             const touchY = e.touches[0].clientY -79;
@@ -85,9 +85,9 @@ export default {
               this.$emit('change',this.letters[index])
             }
             
-            // 16毫秒后还原timer flag，相当于本来实时计算，改成16ms计算一次，降低消耗
+            // 8毫秒后还原timer flag，相当于本来实时计算，改成16ms计算一次，降低消耗
             this.timer = null;
-          }, 16);
+          }, 8);
         }
       },
       handleTouchEnd(){

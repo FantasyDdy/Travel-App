@@ -9,6 +9,8 @@
 <style lang="less">
 html{
   font-size: 50px;
+  // 移动端300毫秒延迟的问题
+  touch-action: manipulation;
 }
 body{
   font-size: 0.28rem;
@@ -21,4 +23,5 @@ body{
   // 选中时无轮廓
   outline: none;
 }
+
 </style>
