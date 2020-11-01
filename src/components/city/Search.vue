@@ -3,7 +3,7 @@
         <input type="text" class="search-input" v-model="keyword" placeholder="输入城市名或拼音">
         <div class="search-content" ref='search' v-show='keyword'>
             <ul>
-                <li class="sreach-item" v-for="item in list" :key="item.id">{{item.name}}</li>
+                <li class="sreach-item" v-for="item in list" :key="item.id" @click="handleCityClick(item.name)">{{item.name}}</li>
                 <li class="sreach-item" v-show="hasNoData">没有找到匹配的城市</li>
             </ul>
         </div>
@@ -13,6 +13,7 @@
 <script>
 // 引入better-scroll 来实现搜索列表的滚动
 import BScroll from 'better-scroll'
+import { mapMutations } from "vuex";
 
 export default {
     name:'CitySearch',
@@ -30,6 +31,14 @@ export default {
         hasNoData(){
             return !this.list.length
         }
+    },
+    methods:{
+        handleCityClick(city){
+            // this.$store.commit('changeCity',city);
+            this.changeCity(city)
+            this.$router.push('/');
+        },
+        ...mapMutations(['changeCity'])
     },
     watch:{
         keyword(){

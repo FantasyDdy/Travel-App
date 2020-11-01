@@ -1,13 +1,30 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import state from "./state";
+import mutations from "./mutations";
 
 Vue.use(Vuex)
 
+
+
 export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
+  /* state: {
+    
+  }, */
+
+  // 为了提高可维护性将index.js文件模块化
+  // state:state,
+  // Es6 键值名一样可以省略写：
+  state,
+
+  /* mutations: {
+    
+  }, */
+
+  // 同样将mutations也模块化
+
+  mutations,
+
   actions: {
   },
   modules: {

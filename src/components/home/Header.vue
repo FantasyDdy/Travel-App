@@ -11,16 +11,26 @@
         </div>
         <div id="header-right">
             <router-link to='/city'>
-                城市
+                <!-- {{this.$store.state.city}} -->
+                <!-- 使用辅助函数简化写法 -->
+                {{this.city}}
                 <span class="iconfont arrow-icon">&#xe688;</span>
             </router-link>
         </div>
   </div>
 </template>
 
-<script>    
+<script>
+// 使用vuex的辅助函数简化对状态的写法   
+import {mapState} from 'vuex'
+
+
 export default {
-    name:'HomeHeader'
+    name:'HomeHeader',
+    computed:{
+        // mapState 函数返回的是一个对象,需要用对象展开运算符将它展开放入computed和本地computed混用
+        ...mapState(['city']),
+    }
 }
 </script>
 
@@ -29,6 +39,7 @@ export default {
     // @import '~@/assets/styles/varibles.less';
     @import '~styles/variables.less';
     @import '~styles/mixins.less';
+
     .header{
         display: flex;
         height: @headerHeight;
@@ -60,7 +71,8 @@ export default {
         }
 
         #header-right{
-            width: 1.24rem;
+            min-width: 1.04rem;
+            padding: 0 0.1rem;
             float: right;
             text-align: center;
             a{
