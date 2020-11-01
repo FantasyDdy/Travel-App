@@ -18,6 +18,7 @@ import HomeIcons from '@/components/home/Icons.vue'
 import HomeRecommend from '@/components/home/Recommend.vue'
 import HomeWeekend from '@/components/home/Weekend.vue'
 import axios from 'axios'
+import { mapState } from "vuex";
 
 // import test from '@/components/home/test.vue'
 
@@ -28,7 +29,8 @@ export default {
       swiperList:[],
       iconList:[],
       recommendList:[],
-      weekendList:[]
+      weekendList:[],
+      lastCity:''
     }
   },
   components: {
@@ -40,9 +42,15 @@ export default {
     
     // test
   },
+  computed:{
+    // 通过辅助函数获取vuex状态中的city属性
+    ...mapState(['city'])
+  },
   methods:{
     getHomeInfo(){
-        axios.get('/api/index.json').then(res=>{
+      // 发送ajax请求时后面要加上city 因为一般页面是要根据城市的不同而重新加载的
+      // 同时我们使用了keep-alive所以我们需要在 activated 生命周期钩子中调用这个ajax方法
+        axios.get('/api/index.json?city=' + this.city).then(res=>{
           this.getHomeInfoSucc(res)
         })
     },
@@ -61,8 +69,21 @@ export default {
     } 
   },
   mounted(){
+    // 当页面加载完毕后发送ajax请求
     this.getHomeInfo();
-    // this.getName();
+
+    // 当页面挂载完成后获取当前的城市
+    this.lastCity = this.city
+  },
+  // activated 生命周期钩子被 keep-alive 缓存的组件激活时调用。
+  activated(){
+    // 当重新加载Home组件时判断当前城市是否于上一个城市不同
+    if(this.lastCity !== this.city){
+      // 改变则重新执行发送ajax请求的方法
+      this.getHomeInfo();
+      // 同时更新lastCity
+      this.lastCity = this.city
+    }
   }
 }
 </script>
