@@ -32,7 +32,7 @@ export default {
         // 当滚动页面时执行此事件
         handleScroll(){
             // 获取当前滚动的距离
-            const top = document.documentElement.scrollTop;
+            const top = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
 
             // 如果滚动距离大于50 则隐藏圆点返回按钮显示banner
             if(top > 50){

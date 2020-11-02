@@ -10,12 +10,17 @@
                     </div>
             </div>
         </div>
-        <detail-gallery :galleryImgs='galleryImgs' v-show="showGallery" @close='closeGallery'></detail-gallery>
+        <!-- 使用复用的过渡组件效果，将需要过度动画的组件作为其插槽 -->
+        <fade-animation>
+            <detail-gallery :galleryImgs='galleryImgs' v-show="showGallery" @close='closeGallery'></detail-gallery>
+        </fade-animation>
     </div>
 </template>
 
 <script>
 import DetailGallery from '../gallery/Gallery'
+// 引入可复用的过渡动画组件
+import FadeAnimation from '../fade/FadeAnimation'
 
 export default {
     name:'DetailBanner',
@@ -39,6 +44,7 @@ export default {
     },
     components:{
         DetailGallery,
+        FadeAnimation
     }
 }
 </script>

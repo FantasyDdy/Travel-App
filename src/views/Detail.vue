@@ -69,6 +69,6 @@ export default {
 
 <style lang="less" scoped>
     .height{
-        height: 50rem;
+        height: 15rem;
     }
 </style>
