@@ -26,7 +26,6 @@ export default {
     name:'City',
     data(){
         return{
-            // city:'',
             hotCities:[],
             cities:{},
             letter:''

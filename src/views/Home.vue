@@ -5,8 +5,6 @@
     <home-icons :list='iconList'></home-icons>
     <home-recommend :list='recommendList'></home-recommend>
     <home-weekend :list='weekendList'></home-weekend>
-    
-    <!-- <test></test> -->
   </div>
 </template>
 
@@ -19,8 +17,6 @@ import HomeRecommend from '@/components/home/Recommend.vue'
 import HomeWeekend from '@/components/home/Weekend.vue'
 import axios from 'axios'
 import { mapState } from "vuex";
-
-// import test from '@/components/home/test.vue'
 
 export default {
   name: 'Home',
@@ -54,9 +50,6 @@ export default {
           this.getHomeInfoSucc(res)
         })
     },
-    /* getHomeInfo(){
-        axios.get('/mock/detail.json').then(this.getHomeInfoSucc)
-    }, */
     getHomeInfoSucc(res){
       const resData = res.data;
       if(resData.ret && resData.data){

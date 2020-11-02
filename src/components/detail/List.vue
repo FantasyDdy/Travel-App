@@ -1,6 +1,6 @@
 <template>
   <div class="list">
-      <div class="item" v-for="(item,index) in list" :key="index">
+      <div class="item" v-for="(item,index) in categoryList" :key="index">
 
             <span class="item-icon"></span>
             {{item.title}}
@@ -9,18 +9,17 @@
             <!-- 根据数据‘children’判断它是否为多级菜单 -->
             <div v-if='item.children'>
                 <!-- 类似于父组件调用它，将item.children传递给递归组件 -->
-                <detail-list :list='item.children'></detail-list>
+                <detail-list :categoryList='item.children'></detail-list>
             </div>
-
       </div>
   </div>
 </template>
 
 <script>
 export default {
-    name:'DetailList',  // name: 递归组件用到它比较多
+    name:'DetailList',  // name的三种主要用途: 1.递归组件、2.keep-alive免缓存、3.Vue devtool中显示组件名
     props:{
-        list:Array
+        categoryList:Array
     },
 }
 </script>

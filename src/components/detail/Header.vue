@@ -49,7 +49,7 @@ export default {
             }else{
                 this.showAbs = true;
             }
-            console.log('scroll')
+            // console.log('scroll')
         }
     },
     // 因为Detail组件也是通过被<keep-alive>组件包裹的<router-view>组件渲染出来的，所以Detail组件的页面一被渲染就会执行activated钩子
