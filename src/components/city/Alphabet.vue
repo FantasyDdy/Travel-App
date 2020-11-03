@@ -42,6 +42,7 @@ export default {
     methods:{
       // 点击相应的字母触发change事件，给父组件传递所点击的字母
       handleLetterClick(e){
+        console.log(e.target.innerText)
         this.$emit('change',e.target.innerText)
       },
 

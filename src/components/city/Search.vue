@@ -68,6 +68,7 @@ export default {
               }
               // 将匹配到的数组赋值给list,用于v-for展现list
               this.list = result
+              this.timer = null;
            }, 100);
         }
     },
