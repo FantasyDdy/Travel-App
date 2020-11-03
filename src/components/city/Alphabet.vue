@@ -5,10 +5,11 @@
       :key="item"
       :ref='item'
       @click="handleLetterClick"
-      @touchstart='handleTouchStart'
+      @touchstart.prevent='handleTouchStart'
       @touchmove='handleTouchMove'
       @touchend='handleTouchEnd'
       >
+      <!-- Vue.js 为 v-on 提供了事件修饰符，.prevent 阻止'touchstart'的默认行为，在移动端浏览时就不会发送页面跟着拖动的效果 -->
         {{item}}
       </li>
   </ul>

@@ -1,10 +1,10 @@
 <template>
-  <div class="container" @click="handleGalleryClick">
+  <div class="container" @click.self="handleGalleryClick">  <!-- .self 事件修饰符，只当在 event.target 是当前元素自身时触发处理函数，即事件不是从内部元素触发的 -->
       <div class="wrapper">
           <swiper :options="swiperOption">
             <swiper-slide v-for="(item,index) in galleryImgs" :key="index">
                 <img class="gallery-img" :src="item">
-            </swiper-slide>
+            </swiper-slide> 
             <div class="swiper-pagination"  slot="pagination"></div>
         </swiper>
       </div>
