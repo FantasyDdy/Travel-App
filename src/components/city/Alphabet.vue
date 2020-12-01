@@ -42,7 +42,7 @@ export default {
     methods:{
       // 点击相应的字母触发change事件，给父组件传递所点击的字母
       handleLetterClick(e){
-        console.log(e.target.innerText)
+        // console.log(e.target.innerText)
         this.$emit('change',e.target.innerText)
       },
 
@@ -51,7 +51,8 @@ export default {
         this.touchStatus = true;
       },
       handleTouchMove(e){
-        /* if(this.touchStatus){
+        /* 
+        if(this.touchStatus){
           // 计算A元素与页面顶部的距离
           const startY = this.$refs['A'][0].offsetTop;
 
@@ -87,9 +88,9 @@ export default {
               this.$emit('change',this.letters[index])
             }
             
-            // 8毫秒后还原timer flag，相当于本来实时计算，改成16ms计算一次，降低消耗
+            // 16毫秒后还原timer flag，相当于本来实时计算，改成16ms计算一次，降低消耗
             this.timer = null;
-          }, 8);
+          }, 16);
         }
       },
       handleTouchEnd(){

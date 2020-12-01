@@ -17,11 +17,7 @@
                     </div>
                 </div>
             </div>
-            <div class="area" 
-            v-for='(item,key) in cities' 
-            :key='key'
-            :ref='key'
-            >
+            <div class="area" v-for='(item,key) in cities' :key='key' :ref='key'>
                 <div class="title">{{key}}</div>
                 <div class="item-list">
                     <div class="item" v-for="innerItem in item" :key='innerItem.id' @click="handleCityClick(innerItem.name)">
@@ -60,7 +56,7 @@ export default {
     },
     mounted(){
         // 初始化 better-scroll组件
-        // 给组件创建一个scroll 实例属性
+        // 给组件创建一个scroll 实例属性,它需要一个DOM元素
         this.scroll = new BScroll(this.$refs.wrapper,{click: true});
     },
     // 监听到 letter 改变时，调用better-scoll 插件提供了 scrollToElement 方法达到滚动到对应字母城市的效果
@@ -75,7 +71,7 @@ export default {
                 // 引用信息数组是包含了对应DOM元素以及长度的二维数组，DOM元素位于这个二维数组的第零项
     
                 // better-scoll 插件提供了 scrollToElement 方法
-                this.scroll.scrollToElement(element)
+                this.scroll.scrollToElement(element);
             }
         }
     },

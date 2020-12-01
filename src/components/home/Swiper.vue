@@ -50,7 +50,7 @@ export default {
         height: 0;
         padding-bottom: 31.25%;
         background-color: #eeeeee;
-        // 或者也可也这样写：(考虑兼容性，才去上面的写法)
+        // 或者也可也这样写：(考虑兼容性，采取上面的写法)
         /* width: 100%;
         height: 31.25vw;
         background-color: #eeeeee; */

@@ -35,8 +35,6 @@ export default {
     HomeIcons,
     HomeRecommend,
     HomeWeekend,
-    
-    // test
   },
   computed:{
     // 通过辅助函数获取vuex状态中的city属性

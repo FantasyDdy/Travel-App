@@ -35,7 +35,7 @@ export default {
             const pages = [];
             this.list.forEach((item,index) => {
                 // 重点：利用 index 0~7 除以 8 向下取整数得零，来分页
-                const page = Math.floor(index/8)
+                let page = Math.floor(index/8)
                 // 判断 pages[page] 内是否有数据,无则让 pages[page] 初始化为一个第二维度的数组用于存放icon项
                 if(!pages[page]){
                     pages[page] = []
@@ -44,6 +44,7 @@ export default {
             });
             return pages
         }
+        
     }
 }
 </script>
@@ -52,13 +53,14 @@ export default {
     @import '~styles/variables.less';
     @import '~styles/mixins.less';
 
-    .icons /deep/ .swiper-container{
+    /* .icons /deep/ .swiper-container{
         overflow:visible;
         padding-bottom: 50%;
-    }
+    } */
     .icons{
         overflow: hidden;
         height: 0;
+        width: 100%;
         padding-bottom: 50%;
         margin-top: 0.1rem;
         // background-color: grey;

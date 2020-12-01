@@ -1,5 +1,5 @@
 <template>
-    <!-- 可复用的过渡 -->
+    <!-- 可复用的过渡组件 -->
     <transition>
         <slot></slot>
     </transition>

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <keep-alive>
-      <!-- 当组件在 <keep-alive> 内被切换，它的 activated 和 deactivated 这两个生命周期钩子函数将会被对应执行。 -->
       <router-view/>
+      <!-- 当组件在 <keep-alive> 内被切换，它的 activated 和 deactivated 这两个生命周期钩子函数将会被对应执行。 -->
     </keep-alive>
     <!-- <keep-alive exclude="Detail"> 则Detail组件不会被缓存，每当组件被keep-alive激活时，组件的mounted钩子都会被调用一次 -->
   </div>
@@ -25,5 +25,4 @@ body{
   // 选中时无轮廓
   outline: none;
 }
-
 </style>
